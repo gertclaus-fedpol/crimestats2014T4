@@ -1,0 +1,36 @@
+﻿{
+ "subject":{
+            "NL":{
+                  "title":"Intrafamiliaal geweld (IFG): aantal geregistreerde feiten per 10.000 huishoudens"
+                 ,"info":"<br>Aantal door de politiediensten geregistreerde feiten betreffende Intrafamiliaal geweld (IFG) per 10.000 huishoudens (Bron: Private huishoudens - FOD Economie). <br><br>Het intrafamilaal geweld (algemeen) bevat het fysiek, psychisch, seksueel en economisch geweld.<br><br>Weergave per pleegjaar en pleegplaats (gemeente).<br><br>Zowel de pogingen als de voltooide feiten worden weergegeven.<br><br>De periode 2001 tot 2005 kan worden bevraagd bij DRI/BIPOL van de Federale Politie. (<a href='http://www.politie.be/fed/nl/contact/diensten/33-directie-van-de-communicatie-federale-politie' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"FR":{
+                  "title":"Violence intrafamiliale (VIF): nombre de faits enregistrés par 10.000 ménages"
+                 ,"info":"<br>Nombre de faits enregistrés par les services de police en matière de Violence intrafamiliale (VIF) par 10.000 ménages (source: Ménages privés - SPF Economie).<br><br>La violence intrafamiliale (générale) contient la violence physique, psychique, sexuelle et économique.<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"EN":{
+                  "title":"Violence intrafamiliale (VIF): nombre de faits enregistrés par 10.000 ménages"
+                 ,"info":"<br>Nombre de faits enregistrés par les services de police en matière de Violence intrafamiliale (VIF) par 10.000 ménages (source: Ménages privés - SPF Economie).<br><br>La violence intrafamiliale (générale) contient la violence physique, psychique, sexuelle et économique.<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"DE":{
+                  "title":"Violence intrafamiliale (VIF): nombre de faits enregistrés par 10.000 ménages"
+                 ,"info":"<br>Nombre de faits enregistrés par les services de police en matière de Violence intrafamiliale (VIF) par 10.000 ménages (source: Ménages privés - SPF Economie).<br><br>La violence intrafamiliale (générale) contient la violence physique, psychique, sexuelle et économique.<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           }
+,"measures":[
+             {
+              "measure":"m"
+             ,"format":{"NL":",.2f","FR":",.2f","EN":",.2f","DE":",.2f"}
+             ,"label":{"NL":"Feiten / 10000 huishoudens", "FR":"Faits / 10000 ménages", "EN":"Faits / 10000 ménages", "DE":"Faits / 10000 ménages"}
+             ,"quantiles":{"type":"kmeans", "number":"5", "boundaries":[ 50, 100, 150, 200, 250, 300]}
+             ,"color":"GnBu"
+             ,"suffix":{"NL":"(Feiten / 10000 huishoudens)", "FR":"(Faits / 10000 ménages)", "EN":"(Faits / 10000 ménages)", "DE":"(Faits / 10000 ménages)"}
+             }
+            ]
+,"evolution":{"dimension":"y", "label":{"NL":"", "FR":"", "EN":"", "DE":""},"format":{"NL":"%Y", "FR":"%Y", "EN":"%Y", "DE":"%Y"}}
+,"geography":{"dimension":"g", "label":{"NL":"", "FR":"", "EN":"", "DE":""},"format":{"NL":"","FR":"","EN":"","DE":""}}
+}

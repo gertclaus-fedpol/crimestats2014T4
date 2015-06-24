@@ -1,0 +1,432 @@
+/* Tooltip */
+
+.choropleth div.tooltip  {
+  color: #000;
+  background: #fff;
+  opacity:0.8;
+  padding: 4px;
+  box-shadow: 0px 0px 2px 0px #666;
+  position: absolute;
+  z-index: 1000;
+}
+
+.choropleth div.tooltip .sep {
+  color: #444;
+  font-weight: bold;
+}
+
+.tooltip-ordinal-key {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Legend */
+
+.choropleth .legend {
+  position:absolute;
+  left:5px;
+  bottom:15px;
+  width:235px;
+  cursor:default;
+  padding:5px;
+}
+
+.legendTable {
+  border: 1px solid #ccc;
+  border-collapse:separate !important;
+  border-spacing: 0px;
+  font-size: 6px;
+  padding: 0px;
+  table-layout: fixed;
+  width: 100%;
+  height: 16px;
+  clear: both;
+}
+
+.legendTable tbody {
+  border: 0px solid #ccc;
+}
+
+.legendBarsNormal {
+  background: rgba(255,255,255,0.85);
+  border-radius: 0px 0px 5px 5px;
+  padding: 0px 5px 15px 5px;
+}
+
+#legendBarsOrdinal {
+  background: rgba(255,255,255,0.85);
+  padding: 10px;
+  display: inline-block;
+  margin: 0px 0px 10px 0px;
+}
+
+.legendColorOrdinal {
+  margin-left: 6px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+
+.legendDescription {
+  background: rgba(255,255,255,0.85);
+  padding: 5px 0px 0px 5px;
+}
+
+.legendLabels {
+  color:#666;
+  margin:0px;
+  padding:5px;
+}
+
+.legendMainTitle, .legendSubTitle { 
+  margin-top:5px;
+  font-weight:bold;
+  color:#333;
+}
+
+.legendLabels .min{
+  float:left
+}
+
+.legendLabels .max{
+  float:right;
+}
+
+#legendBars{
+  margin:0px;
+  clear:both;
+  height:16px;
+  padding-bottom:5px;
+}
+
+#legendBars div {
+  float:left;
+  height:6px;
+}
+
+/* Legend key */
+
+.legendBarsNormal .legendKey {
+  font-size: 8pt;
+  margin-bottom: -3px;
+  padding-top: 2px;
+}
+
+.legendKeyArrowBox {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+}
+
+.legendKeyValue {
+  text-decoration: none;
+  border-bottom: 1px dotted gray;
+  cursor: pointer;
+}
+
+.legendKeyInfo {
+  position: relative;
+  top: 2px;
+}
+
+.legendKeyInfoBox {
+  position: absolute;
+  background: rgba(205,205,205,0.85);
+  border-radius: 10px;
+  border: 1px solid gray;
+  color: black;
+  padding: 10px;
+  width: 300px;
+}
+
+.legendKeyInfoBox ul {
+  margin-left: 0px;
+  padding-left: 15px;
+  list-style-type: square;
+}
+
+.legendKeyInfoBox li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Timeseries navigator */
+
+.choices {
+  position: relative;
+  left: 0px;
+  bottom:10px;
+  padding: 5px 10px;
+  background: rgba(255,255,255,0.85);
+  display:inline-block;
+}
+
+.choices span {
+  font-size: 32px;
+  font-weight: bold;
+  color: #777;
+}
+
+.choices .arrow {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+}
+
+.choices img {
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
+/* Compass */
+
+.compass {
+  opacity: 0.75;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.compass:hover {
+  opacity: 1;
+}
+
+.compassCircle {
+  fill: #fff;
+  stroke: #ccc;
+  stroke-width: 1;
+}
+
+.compassCircle.move {
+  stroke: #fff;
+}
+
+.compassButton {
+  fill: #ddd;
+  stroke: #ddd;
+  stroke-width: .5;
+  stroke-miterlimit:6;
+  stroke-linecap: round;
+}
+
+.compassButton.active {
+  fill:  #555;
+  stroke:  #555;
+  cursor:pointer;
+}
+
+.compassButton.active:hover {
+  stroke-width:  1.5;
+  fill:  #333;
+  stroke:  #333;
+}
+
+.plus-minus{
+  fill: #fff;
+  pointer-events: none;
+}
+
+/* Resizer */
+
+.grip {
+  width: 1px;
+  height: 12px;
+  margin-top: -3px;
+  margin-left: 0px;
+  position: relative;
+  z-index: 88;
+  left: 4px;
+  cursor: e-resize;
+}
+
+.grip:hover {
+  background-position-x:-20px;
+}
+
+.dragging .grip {
+  background-position-x:-40px;
+}
+
+.CRG {
+  margin-top: 10px;
+}
+
+/* Measure navigator */
+.arrow-down{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.navigator {
+  display: block;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0em;
+  -webkit-padding-start: 0em;
+  -webkit-padding-end: 0em;
+  -webkit-padding-after: 0em;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+
+.measureNavigator, .symbolMeasureNavigator  {
+  display: inline-block;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0em;
+  -webkit-padding-start: 0em;
+  -webkit-padding-end: 0em;
+  -webkit-padding-after: 0em;
+  padding: 12px 0px;
+  z-index: 10;
+  vertical-align: top;
+}
+
+.measureNavigator{
+  margin: 0px 0px 0px 10px;
+}
+
+.measureNavigator ul{
+  list-style-type: none;
+  -webkit-margin-start: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0em;
+  -webkit-padding-start: 0em;
+  -webkit-padding-end: 0em;
+  -webkit-padding-after: 0em;
+}
+
+ul#choroplethMeasureUL{
+    display:none;
+}
+.measureNavigator:hover ul#choroplethMeasureUL{
+    display: block;
+}
+
+.measureNavigator button,.symbolMeasureNavigator button{
+  background: #fff;
+  opacity: 0.9;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 0px 0px -1px 0px;
+}
+
+.symbolMeasureNavigator ul{
+  list-style-type: none;
+  -webkit-margin-start: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0em;
+  -webkit-padding-start: 0em;
+  -webkit-padding-end: 0em;
+  -webkit-padding-after: 0em;
+}
+
+.measureNavigator ul,.symbolMeasureNavigator ul{
+  border: 1px solid #ccc;
+  padding: 0;
+  list-style-type: none;
+  margin-top:0px;
+}
+
+ul#symbolMeasureUL{
+    display:none;
+}
+.symbolMeasureNavigator:hover ul#symbolMeasureUL{
+    display: block;
+}
+
+.symbolMeasureNavigator{
+  margin: 0px 0px 0px 5px;
+}
+
+.symbolMeasureNavigator .button-circle{
+  height: 10px;
+  width: 10px;
+  float: left;
+  margin: 3px 5px 0px 0px;
+}
+
+.measureNavigator.fallback {
+  position: absolute;
+  top: 45px;
+}
+
+.measureNavigator li, .symbolMeasureNavigator li  {
+  opacity: 0.8;
+  padding: 3px 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.measureNavigator li.sel {
+  background: #efefef;
+  color:#888;
+}
+
+.measureNavigator li:hover, .symbolMeasureNavigator li:hover {
+  background: #bbb;
+  opacity:1;
+}
+
+.symbolMeasureNavigator li.sel {
+  background: #efefef;
+  color:#888;
+}
+
+/* Geochart */
+
+#geoPaths path {
+  stroke: #000;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#geoPaths path:hover {
+  stroke: #000;
+  opacity: 0.8;
+}
+
+#geoPaths path.active {
+  stroke: #222;
+  z-index: 10000;
+  stroke-location: inside;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  cursor:pointer;
+}
+
+.geoPathBorders {
+  stroke: #333;
+  fill: none;
+}
+
+/* Slicer (symbol transparency, ...) */
+
+.ui-slider {
+  height: 3px;
+  float: left;
+  width: 150px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.ui-slider-handle {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 4px;
+}

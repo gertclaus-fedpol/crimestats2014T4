@@ -1,0 +1,15 @@
+ul.posts li { list-style-image: none; list-style: none; border-bottom:thin dashed $heading-color;  padding-bottom: 1rem;}
+
+ul.posts img { float:left; margin-right:1rem;}
+
+ul.posts li h2 { clear:both;}
+
+
+/*== Table headers*/
+table th,
+table thead {
+  background: $neutral-color !important;
+  color: #fbfbfb;
+  font-weight: normal!important;
+}
+

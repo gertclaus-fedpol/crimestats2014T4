@@ -1,0 +1,36 @@
+﻿{
+ "subject":{
+            "NL":{
+                  "title":"Woninginbraak (strikt): aantal geregistreerde feiten per 10.000 woongelegenheden"
+                 ,"info":"<br>Aantal door de politiediensten geregistreerde feiten betreffende Woninginbraak (strikt) per 10.000 woongelegenheden (Bron: Gebouwenpark - FOD Economie). <br><br>Weergave per pleegjaar en pleegplaats (gemeente).<br><br>Zowel de pogingen als de voltooide feiten worden weergegeven.<br><br>De periode 2001 tot 2005 kan worden bevraagd bij DRI/BIPOL van de Federale Politie. (<a href='http://www.politie.be/fed/nl/contact/diensten/33-directie-van-de-communicatie-federale-politie' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"FR":{
+                  "title":"Cambriolage dans habitation (strict): nombre de faits enregistrés par 10.000 logements"
+                 ,"info":"Nombre de faits enregistrés par les services de police en matière de Cambriolage dans habitation (strict) par 10.000 logements (source: Parc de bâtiments - SPF Economie).<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"EN":{
+                  "title":"Cambriolage dans habitation (strict): nombre de faits enregistrés par 10.000 logements"
+                 ,"info":"Nombre de faits enregistrés par les services de police en matière de Cambriolage dans habitation (strict) par 10.000 logements (source: Parc de bâtiments - SPF Economie).<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"DE":{
+                  "title":"Cambriolage dans habitation (strict): nombre de faits enregistrés par 10.000 logements"
+                 ,"info":"Nombre de faits enregistrés par les services de police en matière de Cambriolage dans habitation (strict) par 10.000 logements (source: Parc de bâtiments - SPF Economie).<br><br>Représentation par année de perpétration et par lieu de perpétration (commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Les données pour les années 2001 jusqu' à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href='http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale' target='_blank'>contact</a>)<br><br>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           }
+,"measures":[
+             {
+              "measure":"m"
+             ,"format":{"NL":",.2f","FR":",.2f","EN":",.2f","DE":",.2f"}
+             ,"label":{"NL":"Feiten / 10000 huisvestingen", "FR":"Faits / 10000 logements", "EN":"Faits / 10000 logements", "DE":"Faits / 10000 logements"}
+             ,"quantiles":{"type":"kmeans", "number":"5", "boundaries":[ 200, 300, 400, 500, 600, 700]}
+             ,"color":"GnBu"
+             ,"suffix":{"NL":"(Feiten / 10000 woongelegenheden)", "FR":"(Faits / 10000 logements)", "EN":"(Faits / 10000 logements)", "DE":"(Faits / 10000 logements)"}
+             }
+            ]
+,"evolution":{"dimension":"y", "label":{"NL":"", "FR":"", "EN":"", "DE":""},"format":{"NL":"%Y", "FR":"%Y", "EN":"%Y", "DE":"%Y"}}
+,"geography":{"dimension":"g", "label":{"NL":"", "FR":"", "EN":"", "DE":""},"format":{"NL":"","FR":"","EN":"","DE":""}}
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% include head-b.html %}
+
+<body>
+<div class="row-fluid core">
+
+<div class="page-content">
+{% include header-b-nl.html %}
+{% include nav-nl.html %}
+ 	
+	<div class="wrapper">
+ 	{% include breadcrumbs-b.html %}     
+        {{ content }}
+	</div><!-- end wrapper | line 14 -->
+
+	
+</div><!-- end row-fluid | line 7 -->
+
+{% include footer-b-nl.html %}
+{% include js.html %}
+
+</body>
+</html>

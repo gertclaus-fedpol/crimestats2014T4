@@ -1,0 +1,16 @@
+// grid layout
+.wrapper {
+  @extend .row;
+}
+.content-main {
+  @extend .col-md-8;
+}
+.content-secondary {
+  @extend .col-sm-4;
+}
+
+.content-split {
+  @extend .col-sm-1;
+  @extend .col-md-6;
+  @extend .col-lg-6;
+}

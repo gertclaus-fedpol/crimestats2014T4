@@ -1,0 +1,37 @@
+.logo-nl {
+ /* display: block;
+
+  width: 100%;
+  height: 8.1rem;
+
+  background: url(../../assets/img/logo/nl.logo.svg) 50% 50% no-repeat;
+
+ background-size: contain;
+  
+  -webkit-background-size: 100% 100%; 
+  -moz-background-size: 200%;
+
+
+  //background: url(../../assets/img/logo/nl.logo.svg) 50% 50% no-repeat;
+  //background-size: 250px 80px;
+  //background-size: 200% 200%;
+*/
+}
+
+.logo-nl {
+    display:block;
+    background: url(../../assets/img/logo/nl-logo_s.png) 50% 0 no-repeat;
+
+    
+    height: 9.6rem;
+}
+
+.logo-fr {
+    display:block;
+    background: url(../../assets/img/logo/fr-logo_s.png) 50% 0 no-repeat;
+
+    
+    height: 9.6rem;
+}
+
+.logo-nl span, .logo-fr span { display:none;}

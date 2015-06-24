@@ -1,0 +1,39 @@
+// modular scale
+
+/* Modular Scale ----------------------
+16px @ 1:1.5
+96px @ 1:1.5
+----------------------*/
+
+$ms-base: 1.6rem 9.6rem;  // Double stranded modular scale | px -> rem
+$ms-ratio: $fifth;
+
+body{ font-size: ms(0);	line-height:1.8963; }
+  h5{ font-size: ms(1); }
+  h4{ font-size: ms(2); }
+  h3{ font-size: ms(3); }
+  h2{ font-size: ms(4); }
+  h1{ font-size: ms(5); }
+
+// basic font styles
+h1, h2, {
+	font-family:$head-font-family;
+	color: $heading-color;
+}
+
+h3, h4, {
+	font-family:$condensed-font-family;
+	color: $accent-color;
+}
+
+p, ul, ol ,td {
+	font-family:$base-font-family;
+	color: $base-color;
+
+}
+
+
+
+
+
+a { @include links($neutral-color, $neutral-color, red, $heading-color,  1s all linear);}

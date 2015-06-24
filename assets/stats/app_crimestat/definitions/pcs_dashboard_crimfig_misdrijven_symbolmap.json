@@ -1,0 +1,63 @@
+﻿{
+ "subject":{
+            "NL":{
+                  "title":"Aantal geregistreerde misdrijven (absolute cijfers)"
+                 ,"info":"<h2>Aantal misdrijfvormen</h2><p>you can add NL info here.........</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"FR":{
+                  "title":"Nombre de délits enregistrés (en chiffres absolus)"
+                 ,"info":"<h2>Nombre de délits enregistrés</h2><p>you can add FR info here...........</p>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"EN":{
+                  "title":"Aantal geregistreerde misdrijven"
+                 ,"info":"<h2>Aantal misdrijfvormen</h2><p>you can add NL info here.........</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"DE":{
+                  "title":"Aantal geregistreerde misdrijven"
+                 ,"info":"<h2>Aantal misdrijfvormen</h2><p>you can add NL info here.........</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           }
+,"symbolMeasures":[
+             {
+              "measure":"b"
+             ,"format":{
+                        "NL":",.0f%"
+                       ,"FR":",.0f%"
+                       ,"EN":",.0f%"
+                       ,"DE":",.0f%"
+                       }
+             ,"label":{
+                       "NL":"Aantal geregistreerde misdrijven ***not used***"
+                      ,"FR":"Nombre de formes criminelles ***not used***"
+                      }
+             ,"size":15
+			 ,"opacity":0.6
+             ,"color":"blue"
+             }
+            ]
+,"geography":{
+              "dimension":"g"
+             ,"label":{
+                       "NL":""
+                      ,"FR":""
+                      ,"EN":""
+                      ,"DE":""
+                      }
+             ,"format":{
+                        "NL":""
+                       ,"FR":""
+                       ,"EN":""
+                       ,"DE":""
+                       }
+             }
+,"aggregation":[
+                {
+                 "dimensions":["g"]
+                ,"measures":[{"measure":"b","type":"sum"}]
+                }
+               ]
+}

@@ -1,0 +1,47 @@
+﻿{
+ "subject":{
+            "NL":{
+                  "title":"Aantal geregistreerde misdrijven (criminele figuren) - nationaal"
+                 ,"info":"<p>Aantal door de politiediensten geregistreerde feiten voor een selectie van criminele figuren. Dit is een combinatie van een misdrijf (bvb diefstal) met bijkomende informatie zoals bijvoorbeeld een bepaald voorwerp (bvb auto) of een bepaalde plaats (bvb woning).<br><br> Opgelet: Criminele figuren mogen niet bij elkaar opgeteld worden, omdat anders dubbeltellingen mogelijk zijn. Voorbeeld: een autodiefstal waarbij de daders wapens gebruikt hebben, zit zowel in autodiefstal, als in diefstal gewapenderhand.<br><br> Weergave per maand en op nationaal niveau.<br><br>Zowel de pogingen als de voltooide feiten worden weergegeven.</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"FR":{
+                  "title":"Nombre de délits enregistrés (figures criminelles) - national"
+                 ,"info":"<p> Nombre de faits enregistrés par les services de police pour une sélection de figures criminelles. Cela veut dire une combinaison d'un délit (p.ex. vol) avec des infos supplémentaires comme par exemple un objet (p.ex. voiture) ou le lieu où le délit a été commis (p.ex. dans une habitation).<br><br> Attention : Il ne faut pas additionner les figures criminelles, à cause du risque de double comptage. Un même fait peut compter pour différentes figures criminelles. Par exemple, un vol de voiture pour lequel les auteurs ont utilisé des armes ne sera pas uniquement repris comme “Vol de voiture”, mais aussi comme “Vol à main armée”.<br><br> Représentation par mois et au niveau national.<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.</p>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"EN":{
+                  "title":"Aantal misdrijven (criminele figuren) - nationaal"
+                 ,"info":"<p>Aantal misdrijven op nationaal niveau doorheen de tijd.<br>Deze gegevens betreffen de geregistreerde misdrijven die vastgesteld werden door de politiediensten (op het grondgebied België) en dus niet de totale gepleegde criminaliteit.</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"DE":{
+                  "title":"Aantal misdrijven (criminele figuren) - nationaal"
+                 ,"info":"<p>Aantal misdrijven op nationaal niveau doorheen de tijd.<br>Deze gegevens betreffen de geregistreerde misdrijven die vastgesteld werden door de politiediensten (op het grondgebied België) en dus niet de totale gepleegde criminaliteit.</p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           }
+,"options":{
+            "focused":12
+		   ,"x_axis_ticks":12
+		   ,"viz_width":860
+		   ,"viz_height":400
+           }
+,"y":[
+      {"measure":"m01"  ,"label":{"NL":"Autodiefstal"                     ,"FR":"Vol de voiture"                     ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#000000"}
+     ,{"measure":"m02"  ,"label":{"NL":"Fietsdiefstal"                    ,"FR":"Vol de vélo"                        ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#4B0082"}
+     ,{"measure":"m03"  ,"label":{"NL":"Diefstal uit of aan voertuig"     ,"FR":"Vol dans ou sur un véhicule"        ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#C0C0C0"}
+     ,{"measure":"m04"  ,"label":{"NL":"Woninginbraak strikt"             ,"FR":"Cambriolage habitation (strict)" 	 ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#DC143C"}
+     ,{"measure":"m05"  ,"label":{"NL":"Diefstal gewapenderhand"          ,"FR":"Vol à main armée"                   ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#FF0000"}
+     ,{"measure":"m06"  ,"label":{"NL":"Diefstal m. geweld zndr wapen"    ,"FR":"Vol avec violence sans arme"         ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#8B0000"}
+     ,{"measure":"m07"  ,"label":{"NL":"Winkeldiefstal"                   ,"FR":"Vol à l'étalage"                    ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#FFEC00"}
+     ,{"measure":"m08"  ,"label":{"NL":"Zakkenrollerij"                   ,"FR":"Vol à la tire"                      ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#00B9FF"}
+     ,{"measure":"m09"  ,"label":{"NL":"Handtasroof"                      ,"FR":"Arrachage de sac à main"            ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#DEB887"}
+     ,{"measure":"m10"  ,"label":{"NL":"Graffiti"                         ,"FR":"Graffiti"                           ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#008000"}
+     ,{"measure":"m11"  ,"label":{"NL":"Beschadiging van auto"            ,"FR":"Dégradation de voiture"             ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#DAA520"}
+     ,{"measure":"m12"  ,"label":{"NL":"Intrafamiliaal geweld"            ,"FR":"Violence intrafamiliale"            ,"EN":""  ,"DE":""}  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#20B2AA"}
+     ]
+,"x":{
+      "dimension":"x"  ,"format":{"NL":"%b %Y","FR":"%b %Y","EN":"%b %Y","DE":"%b %Y"}
+     }
+}

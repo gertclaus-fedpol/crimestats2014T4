@@ -1,0 +1,286 @@
+/* General */
+
+table, td, tr {
+	font-size: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+body {
+  font-family: helvetica;
+}
+
+.body {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.body.render {
+  border: 0px;
+}
+
+h2 {
+  margin-top: 0px;
+}
+
+.body, .tools {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+}
+
+/* General classes */
+
+.hidden {
+  display: none !important;
+}
+
+/* Toolbar */
+
+.tools {
+  color: #444;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+  height: 25px;
+}
+
+.tools a {
+  color: #444;
+}
+
+.toolsButton {
+  padding: 5px 0 5px 5px;
+  cursor: pointer;
+}
+
+.toolsLeft {
+  float: left;
+}
+
+.toolsRight {
+  float: right;
+}
+
+.toolsExport {
+  position: relative;
+  top: 3px;
+  padding: 0 0 0 5px;
+}
+
+.closebutton {
+  margin-bottom: 10px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.embedTooltip {
+  top: 40px;
+  width: 400px;
+  overflow: none;
+}
+
+.embedText {
+  width: 95%;
+  height: 100px;
+}
+
+.optionsTooltip {
+  top: 200px;
+  width: 535px;
+}
+
+/* Slicer */
+
+.slicer {
+}
+
+.slicer-level {
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  margin-bottom: 5px;         /*TMA from 10 to 5*/
+  background-color: white;
+  width: 250px;                 /*TMA from 180 to 270*/
+  display: inline-block;
+  background: white url('images/dd_open.png') no-repeat right; /*TMA add white here because previous is ignored*/
+  overflow: hidden;
+}
+
+.slicer-level select {
+  margin-left: 5px;
+  background: transparent;
+  border: 0;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 280px;         /*TMA from 195 to 285*/
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.slicer-level select option {
+  font-weight: normal;
+}
+
+/* Searcher */
+.tt-query, .tt-hint {
+  width: 332px;
+  padding: 3px 8px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.tt-hint {
+  color: #999;
+  background-image: url('images/search.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center right !important;
+}
+
+.tt-dropdown-menu {
+  width: 348px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(130,50,50,.6);
+  text-align: left;
+}
+
+.tt-suggestion {
+  font-size: 18pt;
+  padding: 3px 8px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: black;
+  background-color: #F0E6E6;
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+/* Source */
+
+.source {
+  float: right;
+  padding-right: 5px;
+}
+
+/* Info */
+
+.linkMetadata {
+  position: relative;
+  top: 1px;
+  padding: 0px 0px 0px 5px;
+  cursor: pointer;
+}
+
+.linkMetadata img {
+  height: 14px;
+  width: 15px;
+}
+
+/* Popup */
+
+.popup {
+  background-color: white;
+  opacity: 0.9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  word-wrap: break-word;
+  z-index: 10000;
+  position: absolute;
+  left: 50px;
+}
+
+/* No SVG warning */
+
+.nosvg {
+  margin: 10px 10px 0 10px;
+  background-color: orange;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.nosvg img {
+  border: 0;
+  margin-bottom: -3px;
+}
+
+/* Slider */
+
+.slider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.slider .slider-element {
+  width: 100px;
+  display: inline-block;
+  margin-right: 20px;
+  top: -7px;
+}
+
+.slider .slider-element .ui-slider-handle {
+  width: 15px !important;
+  height: 15px !important;
+  margin-left: -8px !important;
+  top: -7px !important;
+  border-radius: 7px;
+}
+
+.slider .slider-element.ui-slider {
+  height: 4px;
+  background-color: #EBDAB7 !important;
+}
+
+.slider .slider-label {
+  font-size: 30px;
+  font-weight: bold;
+  color: #777;
+}
+
+.slider .arrow {
+  width: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+.slider .arrow img {
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
+.slider .slider-autoplay {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.slider .slider-autoplay img {
+  margin-bottom: 2px;
+}
+
+.slider .slider-caption {
+  display: block;
+  margin-right: 23px;
+}

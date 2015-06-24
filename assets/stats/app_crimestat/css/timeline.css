@@ -1,0 +1,197 @@
+/* Legend */
+
+.timeline .legend {
+  float: right;
+  height: 100%;
+  border-left: 1px dashed gray;
+  width: 200px;   /*TMA: 100 -> 200*/
+  background-color: white;
+  opacity: 0.9;
+  padding: 5px;
+}
+
+.timeline .legend label {
+  cursor: pointer;
+}
+
+.timeline .legend input {
+  cursor: pointer;
+}
+
+.series div {
+  cursor: pointer;
+}
+
+.timeline .legend svg {
+  display: inline;
+  height: 10px;
+  width: 25px;
+  margin-right: 15px;
+}
+
+.timeline .legend svg line {
+  fill: none;
+  stroke-width: 3px;
+}
+
+.options {
+  padding: 5px 5px 5px 5px;
+}
+
+.options input {
+  margin-left: 1px;
+  margin-right: 5px;
+}
+
+.series {
+  padding: 5px 5px 5px 5px;
+}
+
+.legend-series {
+  height: 20px;
+  display: block;
+  overflow: visible;
+}
+
+.legend-box {
+  float: left;
+  display: inline-block;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: -1px;
+}
+
+.legend-label {
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 170px; /*TMA: 70 -> 170*/
+  height: 15px;
+}
+
+.sidebar-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.graph {
+  float: left;
+}
+
+/* Title */
+
+.title {
+  font: 14px sans-serif;
+  font-weight: bold;
+}
+
+.ruler {
+  stroke-dasharray: 2;
+  stroke-width: 0.5px;
+  stroke: black;
+}
+
+.timeline .tooltip {
+  color: #000;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0.8;
+  padding: 4px;
+  box-shadow: 0px 0px 2px 0px #666;
+  position: absolute;
+  z-index: 1000;
+  position: absolute;
+}
+
+.tooltipkey {
+  font: 12px sans-serif;
+  color: steelblue;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.timeline .tooltip table {
+  text-align: left;
+  font: 12px sans-serif;
+  color: #000;
+  margin-top: 10px;
+}
+
+.master {
+  border-top: 1px dashed #AAA;
+  background-color: #EEE;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+.area:nth-of-type(1) { stroke: rgb(128,177,211); }
+.area:nth-of-type(2) { stroke: rgb(251,128,114); }
+.area:nth-of-type(3) { stroke: rgb(190,186,218); }
+.area:nth-of-type(4) { stroke: rgb(141,211,199); }
+.area:nth-of-type(5) { stroke: rgb(255,255,179); }
+.area:nth-of-type(6) { stroke: rgb(253,180,98); }
+.area:nth-of-type(7) { stroke: rgb(179,222,105); }
+.area:nth-of-type(8) { stroke: rgb(252,205,229); }
+.area:nth-of-type(9) { stroke: rgb(217,217,217); }
+.area:nth-of-type(10) { stroke: rgb(188,128,189); }
+
+.line:nth-of-type(1) { stroke: rgb(128,177,211); }
+.line:nth-of-type(2) { stroke: rgb(251,128,114); }
+.line:nth-of-type(3) { stroke: rgb(190,186,218); }
+.line:nth-of-type(4) { stroke: rgb(141,211,199); }
+.line:nth-of-type(5) { stroke: rgb(255,255,179); }
+.line:nth-of-type(6) { stroke: rgb(253,180,98); }
+.line:nth-of-type(7) { stroke: rgb(179,222,105); }
+.line:nth-of-type(8) { stroke: rgb(252,205,229); }
+.line:nth-of-type(9) { stroke: rgb(217,217,217); }
+.line:nth-of-type(10) { stroke: rgb(188,128,189); }
+
+.datapointseries:nth-of-type(1) { fill: rgb(128,177,211); }
+.datapointseries:nth-of-type(2) { fill: rgb(251,128,114); }
+.datapointseries:nth-of-type(3) { fill: rgb(190,186,218); }
+.datapointseries:nth-of-type(4) { fill: rgb(141,211,199); }
+.datapointseries:nth-of-type(5) { fill: rgb(255,255,179); }
+.datapointseries:nth-of-type(6) { fill: rgb(253,180,98); }
+.datapointseries:nth-of-type(7) { fill: rgb(179,222,105); }
+.datapointseries:nth-of-type(8) { fill: rgb(252,205,229); }
+.datapointseries:nth-of-type(9) { fill: rgb(217,217,217); }
+.datapointseries:nth-of-type(10) { fill: rgb(188,128,189); }
+
+.legend-series:nth-of-type(1) .legend-box { background-color: rgb(128,177,211); }
+.legend-series:nth-of-type(2) .legend-box { background-color: rgb(251,128,114); }
+.legend-series:nth-of-type(3) .legend-box { background-color: rgb(190,186,218); }
+.legend-series:nth-of-type(4) .legend-box { background-color: rgb(141,211,199); }
+.legend-series:nth-of-type(5) .legend-box { background-color: rgb(255,255,179); }
+.legend-series:nth-of-type(6) .legend-box { background-color: rgb(253,180,98); }
+.legend-series:nth-of-type(7) .legend-box { background-color: rgb(179,222,105); }
+.legend-series:nth-of-type(8) .legend-box { background-color: rgb(252,205,229); }
+.legend-series:nth-of-type(9) .legend-box { background-color: rgb(217,217,217); }
+.legend-series:nth-of-type(10) .legend-box { background-color: rgb(188,128,189); }
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: steelblue;
+  fill: steelblue;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.mousedetector {
+  fill-opacity: 0;
+}

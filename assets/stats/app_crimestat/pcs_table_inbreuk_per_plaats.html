@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title id="title">Title</title><!--remark this will be translated by the script-->
+
+
+  <!--css for the table ---------------------------------------------------------------------------------------------------------------------------   -->
+  <!--
+  This stylesheet basically strips the built-in default styles from a viewing web-browser to give a common starting point for styling across all browsers. This is particularly useful with tables since browsers can often have different defaults styles for various elements. This reset stylesheet is included using the following HTML
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+  remark: either activate the line above or the code below, this is the same but hardcoded
+  -->
+  <style type="text/css">
+   html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+  </style>
+  <style type="text/css" title="currentStyle">
+    @import "css/demo_table.css";
+    @import "css/demo_page.css";
+    @import "css/TableTools.css";
+  </style>
+  <!-- remark: the images icon for the sorting triangles are located in table/css/images-->
+
+  <!--js for the table ---------------------------------------------------------------------------------------------------------------------------   -->
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/ZeroClipboard.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/TableTools.min.js"></script>
+
+
+  <script type="text/javascript" charset="utf-8">
+   //read param
+   var l_param = window.location.search.substring(1);    //get all params
+   var l_lang = (l_param.toUpperCase().indexOf('LANG=FR') != -1 ? 'FR':
+                (l_param.toUpperCase().indexOf('LANG=EN') != -1 ? 'EN':
+                (l_param.toUpperCase().indexOf('LANG=DE') != -1 ? 'DE':'NL')));
+   var l_ext = (l_param.toUpperCase().indexOf('EXT=Y') != -1 ? 1:0); //this parameter means extended = with level 5 week and level 6 day over 2 years
+   var l_debug = (l_param.toUpperCase().indexOf('DEBUG=Y') != -1 ? 1:0);
+
+   //detect browser
+   var l_nav= navigator.appName, ua= navigator.userAgent, tem;
+   var l_browser= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+   if(l_browser && (tem= ua.match(/version\/([\.\d]+)/i))!= null) l_browser[2]= tem[1];
+   l_browser=(l_browser? [l_browser[1], l_browser[2]]: [l_nav, navigator.appVersion,'-?']).toString();
+   //alert(l_browser);
+   //return: MSIE,8.0
+   //return: Firefox,24.0
+   //return: Chrome,30.0.1599.101
+
+
+
+
+   //=================================================================================================================================================
+   //=================================================================================================================================================
+   //                           *** this part is reserved for customisation ***
+   //--definition file------------------------------------------------------------------------------
+   //remark: the definition file could be defined in json format as well, but we do it here for the dynamic table with javascript
+   //        this is the same and this allow the usage of comments which will make it easier to use.
+
+
+   //var l_ext = 0; //either 0 or 1 , if = 1 then means extended = with level 5 week and level 6 day over 2 years, it requires a datafile with ...ext.json
+                                         //it is recommended to use l_ext = 1 only for police internal usage (intranet) -> more details but slower
+                                        //and to use l_ext = 0 for the grand public (internet) -> will be faster
+                                         //this flag is normally specified by a parameter (l_ext=Y) , but can be overwitten here
+
+
+   var l_path_icon = 'css/images/';  //relative path to find the icons, end with a slash
+   var l_path_data = 'data/';  //relative path to find the data, end with a slash
+
+
+
+   //remark: on each line there are 6 fields: title in NL, FR, EN, DE (keep them short < 30 char), filename, code (can be any unique code, like NIS code for example)
+   //remark: The first 4 columns containing the titles may be preceeded by leading underscore (_) to indent the list by hierarchy
+   //remark: the first file listed is the one loaded by default (first line), except if url param view = code in the 6th column
+   //remark: do not add "ext" before the extension .json, it will be added automatically by the program when the url param "ext=Y" is given
+   //remark: the number of files is not limited -> so you can add new lines below, or remove some of them
+   //remark: all the files listed must be the same format, with only the data differing (-> same number of lines, same number of columns, same hierarchy)
+   var ar_measure_input = [
+                           ['Totaal aantal misdrijven'              ,'Nombre total des délits'              ,'Totaal aantal misdrijven'                ,'Totaal aantal misdrijven'          ,'pcs_table10y_inbreuk_tijd_plaats_totaal_aantal_misdrijven.json'                    ,'']
+                          ,['Diefstal en afpersing'                 ,'Vol et extorsion'                     ,'Diefstal en afpersing'                   ,'Diefstal en afpersing'             ,'pcs_table10y_inbreuk_tijd_plaats_diefstal_en_afpersing.json'                       ,'']
+                          ,['Beschadigen van eigendom'              ,'Dégradation de la propriété'          ,'Beschadigen van eigendom'                ,'Beschadigen van eigendom'          ,'pcs_table10y_inbreuk_tijd_plaats_beschadigen_van_eigendom.json'                    ,'']
+                          ,['Misdr. tegen lichamelijke integriteit' ,'Infr. contre l´intégrité physique'    ,'Misdr. tegen de lich. int.'              ,'Misdr. tegen de lich. int.'        ,'pcs_table10y_inbreuk_tijd_plaats_misdr_tegen_de_lichamelijke_integriteit.json'     ,'']
+                          ,['Drugs'                                 ,'Drogues'                              ,'Drugs'                                   ,'Drugs'                             ,'pcs_table10y_inbreuk_tijd_plaats_drugs.json'                                       ,'']
+                          ,['Bedrog'                                ,'Fraude'                               ,'Bedrog'                                  ,'Bedrog'                            ,'pcs_table10y_inbreuk_tijd_plaats_bedrog.json'                                      ,'']
+                          ];
+
+
+   //in the next array the columns are the translations in NL ,FR, EN, DE (in this order)
+   //you can modify the translations as you want, but do not change the order of the lines (this would require a change in the javascript program)
+   //and do not add yourself new lines (for the same reason)
+   var ar_title= [
+                  ['Te tonen statistiek'                                ,'Mesure à afficher'                                  ,'Statistic to show'                                  ,'Statistiek te tonen'                                ]  // 0 sub-title
+                 ,['Niveau van detaillering'                            ,'Niveau de détail'                                   ,'Drill-down level'                                   ,'Niveau van detaillering'                            ]  // 1 sub-title
+                 ,['Filter'                                             ,'Filtre'                                             ,'Filter'                                             ,'Filter'                                             ]  // 2 sub-title
+                 ,['Jaar'                                               ,'Année'                                              ,'Year'                                               ,'Jaar'                                               ]  // 3 radio
+                 ,['Semester'                                           ,'Semestre'                                           ,'Semester'                                           ,'Semester'                                           ]  // 4 radio
+                 ,['Trimester'                                          ,'Trimestre'                                          ,'Quartal'                                            ,'Trimester'                                          ]  // 5 radio
+                 ,['Maand'                                              ,'Mois'                                               ,'Month'                                              ,'Maand'                                              ]  // 6 radio
+                 ,['Week'                                               ,'Semaine'                                            ,'Week'                                               ,'Week'                                               ]  // 7 radio
+                 ,['Dag'                                                ,'Jour'                                               ,'Day'                                                ,'Dag'                                                ]  // 8 radio
+                 ,['Kopieer'                                            ,'Copier'                                             ,'Copy'                                               ,'Kopieer'                                            ]  // 9 for button Copy (other button are not translated)
+                 ,['Statistieken'                                       ,'Statistiques'                                       ,'Statistics'                                         ,'Statistieken'                                       ]  //10 for filename export
+                 ,['Statistieken van de federale politie'               ,'Statistiques de la police nationale'                ,'Statistics of the Federale Police'                  ,'Statistieken van de federale politie'               ]  //11 for pdf message and for page title
+                 ,['Bewaren als'                                        ,'Exporter en'                                        ,'Save as'                                            ,'Bewaren als'                                        ]  //12 for tooltip CSV,EXCEL,PDF
+                 ,['Afdrukken'                                          ,'Imprimer'                                           ,'Print'                                              ,'Afdrukken'                                          ]  //13 for tooltip Print
+                 ,['Kopieer data naar Clipboard'                        ,'Copier les données dans le Clipboard'               ,'Copy data to Clipboard'                             ,'Kopieer data in Clipboard'                          ]  //14 for tooltip Copy
+                 ,['Gebruik uw browser print functionaliteit, dan druk op ESC om terug te komen naar de tabel'
+                  ,'Utilisez la fonction PRINT de votre browser, ensuite pressez ESC pour revenir à la table'
+                  ,'Use your browser print functionality, then press ESC to come back to the table'
+                  ,'Gebruik uw browser print functionaliteit, dan druk op ESC om terug te komen naar de tabel'                                                                                                                            ]  //15 for print
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //16 (for later use)
+                 ,['css/images/howto/how_to_use_table_NL.png'           ,'css/images/howto/how_to_use_table_FR.png'           ,'css/images/howto/how_to_use_table_EN.png'           ,'css/images/howto/how_to_use_table_DE.png'           ]  //17 for how-to-use (url)
+                 ,['Hoe deze tabel gebruiken?'                          ,'Comment utiliser cette table?'                      ,'How to use this table?'                             ,'Hoe deze tabel gebruiken?'                          ]  //18 for how-to-use (name of the link)
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //19 (for later use)
+                 ,['Statistieken van'                                   ,'Statistiques de'                                    ,'Statistics of'                                      ,'Statistieken van'                                   ]  //20 title part 1  example (Statistieken van Snelheid per Jaar en per Plaats)
+                 ,['per'                                                ,'par'                                                ,'per'                                                ,'per'                                                ]  //21 title part 2
+                 ,['en per'                                             ,'et par'                                             ,'and per'                                            ,'en per'                                             ]  //22 title part 3
+                 ,['Plaats'                                             ,'Lieu'                                               ,'Location'                                           ,'Plaats'                                             ]  //23 title part 4  indicate here the dimension used in the rows
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //24 (for later use)
+                 ,['Bron'                                               ,'Source'                                             ,'Source'                                             ,'Bron'                                               ]  //25 for link part 1
+                 ,['DRI/BIPOL - Politiële criminaliteitsstatistieken'   ,'DRI/BIPOL - Statistiques policières de criminalité' ,'DRI/BIPOL - Police criminality statistics'          ,'DRI/BIPOL - Politiële criminaliteitsstatistieken'        ]  //26 for link part 2 (the name of the link)
+                 ,['http://www.stat.federalepolitie.be'  				,'http://www.stat.policefederale.be'  					,'http://www.stat.federalepolitie.be'  				,'http://www.stat.federalepolitie.be'  					]  //27 for link part 3 (the url of the link)
+                 ,['De browser die U gebruikt'                          ,'Le navigateur que vous utilisez'                    ,'De browser dat you are using'                       ,'De browser die U gebruikt'                          ]  //28 fallback message part 1
+                 ,['kan deze pagina niet dynamisch weergeven.<br>Gelieve een nieuwere versie of een andere browser te gebruiken zoals FireFox, Chrome, Safari, Opera'
+                  ,'ne permet pas d´afficher cette page de façon dynamique.<br>Veuillez mettre votre navigateur à jour, ou utiliser un autre navigateur tel que FireFox, Chrome, Safari, Opera'
+                  ,'cannot display this page dynamically.<br>Please upgrade or use another browser like FireFox, Chrome, Safari, Opera'
+                  ,'kan deze pagina niet dynamisch weergeven.<br>Gelieve een nieuwere versie, of een andere browser te gebruiken zoals FireFox, Chrome, Safari, Opera'                                                                    ]  //29 fallback message part 2
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //30 (for later use)
+                 ,['(*) Het laatste jaar is dus nog niet volledig.'     ,'(*) La dernière année n´est pas encore complète.'   ,'(*) The last year is not yet complete.'             ,'(*) Het laatste jaar is dus nog niet volledig.'     ]  //31 footer message
+                 ,['Info'                                               ,'Info'                                               ,'Info'                                               ,'Info'                                               ]  //32 footer info link label
+                 ,['<b>Algemeen: </b><br>Aantal door de politiediensten geregistreerde feiten voor het geselecteerde misdrijf. De weergegeven misdrijven zijn het totaal aantal misdrijven en de top 5 van hoofdcategorieën op nationaal niveau. Hoofdcategorieën zijn inbreuken op de wetgeving in het gerechtelijk domein (niet-verkeer).<br><br> Weergave per pleegtijdstip (jaar tot maand) en pleegplaats (nationaal tot gemeente).<br><br>Zowel de pogingen als de voltooide feiten worden weergegeven.<br><br>Onbekend / Geen PZ toegekend : de exacte gemeente of politiezone kan niet worden toegewezen.<br><br><b>Extra:</b><br>Het betreft steeds een selectie van misdrijven. Voor een volledig overzicht verwijzen we graag naar de statische rapporten. <br><br>De periode 2001 tot 2005 kan worden bevraagd bij DRI/BIPOL van de Federale Politie. (<a href="http://www.politie.be/fed/nl/contact/diensten/33-directie-van-de-communicatie-federale-politie" target="_blank">contact</a>)<br><br>Voor meer informatie kan u steeds terecht in de methodologische nota.'
+                  ,'<b>Général : </b><br>Nombre de faits enregistrés par les services de police pour le délit sélectionné. Les délits représentés correspondent au nombre total des délits et au top 5 des catégories principales au niveau national. Il s’agit d’infractions dans le domaine judiciaire (non-circulation).<br><br> Représentation par moment de perpétration (année jusque mois) et par lieu de perpétration (national jusque commune).<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br><br>Inconnu / Pas de ZP attribuée : la commune ou la zone de police exacte ne peut pas être attribuée. <br><br><b>Extra :</b><br>Il s’agit toujours d’une sélection de délits. Pour une vue générale, nous vous renvoyons aux rapports statiques. <br><br>Les données pour les années 2001 jusqu’à 2005 sont disponibles sur demande auprès du service DRI/BIPOL de la Police Fédérale. (<a href="http://www.police.be/fed/fr/contact/services/33-direction-de-la-communication-police-federale" target="_blank">contact</a>)<br><br>Pour de plus amples informations, vous pouvez consulter la note méthodologique.'
+                  ,'info text EN comes here...'
+                  ,'info text DE comes here...'                                                                                                                                                                                           ]  //33 footer info text
+                 ,['Bevat cijfers tot en met 31 december 2014. <br> Afsluitingsdatum: 24/04/2015.'             ,'Contient des données jusqu´au 31 décembre 2014.<br>Date de clôture: 24/04/2015.'          ,'Contains data until December 31 2014.'                  ,'Bevat cijfers tot en met 31 december 2014. <br> Afsluitingsdatum: 24/04/2015.'             ]  //34 footer data text
+                 ,['Hulp om een gemeente te vinden'                     ,'Aide pour trouver une commune'                      ,'Help to find a city'                                ,'Hulp om een gemeente te vinden'                     ]  //35 help link label
+                 ,['help_city_NL.html'                                  ,'help_city_FR.html'                                  ,'help_city_NL.html'                                  ,'help_city_NL.html'                                  ]  //36 help link url
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //37 (for later use)
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //38 (for later use)
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //39 (for later use)
+                 ,[''                                                   ,''                                                   ,''                                                   ,''                                                   ]  //40 (for later use)
+                 ];
+
+   var ar_month_NL = ['Jan','Feb','Maa','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];    //keep short
+   var ar_month_FR = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Dec']; //keep short
+   var ar_month_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];    //keep short
+   var ar_month_DE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];    //keep short
+
+   var ar_semester_NL = ['Sem']; //keep short
+   var ar_semester_FR = ['Sem']; //keep short
+   var ar_semester_EN = ['Half']; //keep short
+   var ar_semester_DE = ['Hälf']; //keep short
+
+   var ar_trimester_NL = ['Trim']; //keep short
+   var ar_trimester_FR = ['Trim']; //keep short
+   var ar_trimester_EN = ['Q.']; //keep short
+   var ar_trimester_DE = ['Q.']; //keep short
+
+   var ar_week_NL = ['Week','W-E']; //keep short
+   var ar_week_FR = ['Sem.','W-E']; //keep short
+   var ar_week_EN = ['Week','W-E']; //keep short
+   var ar_week_DE = ['Woche','W-E']; //keep short
+
+   var ar_day_NL = ['Dag','Nacht']; //keep short
+   var ar_day_FR = ['Jour','Nuit']; //keep short
+   var ar_day_EN = ['Day','Night']; //keep short
+   var ar_day_DE = ['Tag','Nacht']; //keep short
+
+   //--end of definition file-----------------------------------------------------------------------
+   //=================================================================================================================================================
+   //=================================================================================================================================================
+  </script>
+  <!--read javascript dynamic_table (CSC proprietary, no change required in this script (only bugfix if any) -->
+  <script type="text/javascript" charset="utf-8" src="js/dynamic_table.min.js"></script>
+
+
+ </head>
+ <body id="dt_example" onLoad="if(!l_fallback){fnInit()}" style="float:left;margin-left:20px">
+  <div id="container" style="float:left">
+   <h1><div id="div_title">Title</div></h1><!--remark this will be translated by the script-->
+   <br>
+   <table border="0">
+    <thead>
+     <tr>
+      <th style="padding-left:20px;font-weight:bold">
+       <span id="span_dd_title">Select the measure to show:</span><!--remark this will be translated by the script-->
+      </th>
+      <th style="padding-left:10px;font-weight:bold">
+       <span id="span_radio_title">Level of detail:</span><!--remark this will be translated by the script-->
+      </th>
+      <th style="padding-left:20px;font-weight:bold" colspan="6">
+       <span id="span_checkbox_title">Filter:</span><!--remark this will be translated by the script-->
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr style="vertical-align:top">
+      <td style="padding-left:20px;padding-right:20px;border-right:solid 1px #EEEEEE">
+       <form>
+        <select id="select_dd_list" onchange="f_list_change(this.selectedIndex)">
+        </select><br>
+       </form>
+       <br>
+       <div id="div_info_link" style="padding-top:5px;padding-right:30px">info</div><!--remark this will be translated by the script-->
+       <div id="div_howto_link" style="padding-top:5px;padding-right:10px">how to use</div><!--remark this will be translated by the script-->
+       <div id="div_help_link" style="padding-top:5px;padding-right:30px">help</div><!--remark this will be translated by the script-->
+      </td>
+      <td style="padding-left:10px;width:75px">
+       <label><input type="radio" name="level" id="input_radio_year"      onclick="fnRadio('year')"      checked="yes"  ><span id="span_radio_year"     >Year </span></label><br>
+       <label><input type="radio" name="level" id="input_radio_semester"  onclick="fnRadio('semester')"                 ><span id="span_radio_semester" >Sem  </span></label><br>
+       <label><input type="radio" name="level" id="input_radio_trimester" onclick="fnRadio('trimester')"                ><span id="span_radio_trimester">Trim </span></label><br>
+       <label><input type="radio" name="level" id="input_radio_month"     onclick="fnRadio('month')"                    ><span id="span_radio_month"    >Month</span></label><br>
+       <label><input type="radio" name="level" id="input_radio_week"      onclick="fnRadio('week')" style="display:none"><span id="span_radio_week" style="display:none">Week </span></label><br>
+       <label><input type="radio" name="level" id="input_radio_day"       onclick="fnRadio('day')"  style="display:none"><span id="span_radio_day"  style="display:none">Day  </span></label><br>
+      </td>
+      <td style="padding-left:20px;width:50px">
+       <label><input type="checkbox" id="input_checkbox_year_01" onclick="fnCheckbox('year','01',this.checked)" checked=true style="display:"><span id="span_checkbox_year_01" style="padding-left:5px">year01</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_02" onclick="fnCheckbox('year','02',this.checked)" checked=true style="display:"><span id="span_checkbox_year_02" style="padding-left:5px">year02</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_03" onclick="fnCheckbox('year','03',this.checked)" checked=true style="display:"><span id="span_checkbox_year_03" style="padding-left:5px">year03</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_04" onclick="fnCheckbox('year','04',this.checked)" checked=true style="display:"><span id="span_checkbox_year_04" style="padding-left:5px">year04</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_05" onclick="fnCheckbox('year','05',this.checked)" checked=true style="display:"><span id="span_checkbox_year_05" style="padding-left:5px">year05</span></label><br>
+      </td>
+      <td style="padding-left:20px;width:75px">
+       <label><input type="checkbox" id="input_checkbox_year_06" onclick="fnCheckbox('year','06',this.checked)" checked=true style="display:none"><span id="span_checkbox_year_06" style="padding-left:5px;display:none">year06</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_07" onclick="fnCheckbox('year','07',this.checked)" checked=true style="display:none"><span id="span_checkbox_year_07" style="padding-left:5px;display:none">year07</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_08" onclick="fnCheckbox('year','08',this.checked)" checked=true style="display:none"><span id="span_checkbox_year_08" style="padding-left:5px;display:none">year08</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_09" onclick="fnCheckbox('year','09',this.checked)" checked=true style="display:none"><span id="span_checkbox_year_09" style="padding-left:5px;display:none">year09</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_year_10" onclick="fnCheckbox('year','10',this.checked)" checked=true style="display:none"><span id="span_checkbox_year_10" style="padding-left:5px;display:none">year10</span></label><br>
+      </td>
+      <td style="padding-left:20px" id="td_semester">
+       <label><input type="checkbox" id="input_checkbox_semester_1" onclick="fnCheckbox('semester','1',this.checked)" checked=true style="display:none"><span id="span_checkbox_semester_1" style="padding-left:5px;display:none">Sem 1</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_semester_2" onclick="fnCheckbox('semester','2',this.checked)" checked=true style="display:none"><span id="span_checkbox_semester_2" style="padding-left:5px;display:none">Sem 2</span></label><br>
+      </td>
+      <td style="padding-left:20px" id="td_trimester">
+       <label><input type="checkbox" id="input_checkbox_trimester_1" onclick="fnCheckbox('trimester','1',this.checked)" checked=true style="display:none"><span id="span_checkbox_trimester_1" style="padding-left:5px;display:none">Trim 1</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_trimester_2" onclick="fnCheckbox('trimester','2',this.checked)" checked=true style="display:none"><span id="span_checkbox_trimester_2" style="padding-left:5px;display:none">Trim 2</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_trimester_3" onclick="fnCheckbox('trimester','3',this.checked)" checked=true style="display:none"><span id="span_checkbox_trimester_3" style="padding-left:5px;display:none">Trim 3</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_trimester_4" onclick="fnCheckbox('trimester','4',this.checked)" checked=true style="display:none"><span id="span_checkbox_trimester_4" style="padding-left:5px;display:none">Trim 4</span></label><br>
+      </td>
+      <td style="padding-left:20px;width:50px">
+       <label><input type="checkbox" id="input_checkbox_month_01" onclick="fnCheckbox('month','01',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_01" style="padding-left:5px;display:none">M01</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_02" onclick="fnCheckbox('month','02',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_02" style="padding-left:5px;display:none">M02</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_03" onclick="fnCheckbox('month','03',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_03" style="padding-left:5px;display:none">M03</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_04" onclick="fnCheckbox('month','04',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_04" style="padding-left:5px;display:none">M04</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_05" onclick="fnCheckbox('month','05',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_05" style="padding-left:5px;display:none">M05</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_06" onclick="fnCheckbox('month','06',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_06" style="padding-left:5px;display:none">M06</span></label><br>
+      </td>
+      <td style="padding-left:10px;width:50px">
+       <label><input type="checkbox" id="input_checkbox_month_07" onclick="fnCheckbox('month','07',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_07" style="padding-left:5px;display:none">M07</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_08" onclick="fnCheckbox('month','08',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_08" style="padding-left:5px;display:none">M08</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_09" onclick="fnCheckbox('month','09',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_09" style="padding-left:5px;display:none">M09</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_10" onclick="fnCheckbox('month','10',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_10" style="padding-left:5px;display:none">M10</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_11" onclick="fnCheckbox('month','11',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_11" style="padding-left:5px;display:none">M11</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_month_12" onclick="fnCheckbox('month','12',this.checked)" checked=true style="display:none"><span id="span_checkbox_month_12" style="padding-left:5px;display:none">M12</span></label><br>
+      </td>
+      <td style="padding-left:20px">
+       <label><input type="checkbox" id="input_checkbox_week_1" onclick="fnCheckbox('week','1',this.checked)" checked=true style="display:none"><span id="span_checkbox_week_1" style="padding-left:5px;display:none">Week</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_week_2" onclick="fnCheckbox('week','2',this.checked)" checked=true style="display:none"><span id="span_checkbox_week_2" style="padding-left:5px;display:none">W-E</span></label><br>
+      </td>
+      <td style="padding-left:20px">
+       <label><input type="checkbox" id="input_checkbox_day_1" onclick="fnCheckbox('day','1',this.checked)" checked=true style="display:none"><span id="span_checkbox_day_1" style="padding-left:5px;display:none">Day</span></label><br>
+       <label><input type="checkbox" id="input_checkbox_day_2" onclick="fnCheckbox('day','2',this.checked)" checked=true style="display:none"><span id="span_checkbox_day_2" style="padding-left:5px;display:none">Night</span></label><br>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <br>
+   <!-- style="display:none" -> table is hidden while initialiasing -->
+   <div id="div_table">
+   <table id="table_id" class="display" border="0" cellpadding="0" cellspacing="0" width="100%" style="display:none">
+    <thead id="thead_id">
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    </tfoot>
+   </table>
+   </div>
+   <div id="div_footer_data_msg" style="float:left;padding-top:5px;padding-right:10px">data info</div><!--remark this will be translated by the script-->
+   <div id="div_yearcomplete" style="float:left;padding-top:5px;padding-right:10px">last year not complete</div><!--remark this will be translated by the script-->
+   <div id="div_link" style="float:right;padding-top:5px;padding-right:10px">link</div><!--remark this will be translated by the script-->
+   <div id="div_info_box" style="background-color:#eeeeee;position:absolute;left:70px;top:90px;width:650px;height:320px;padding:40px;font-size:12px;background-image:url('css/images/dd_remove.png');background-repeat:no-repeat;background-position:right top;border:solid 3px #cccccc;display:none" onclick="this.style.display='none'">info text</div>
+   <div id="div_howto_box" style="background-color:#eeeeee;position:absolute;left:50px;top:20px;width:770px;height:450px;padding:20px;font-size:12px;background-image:url('css/images/dd_remove.png');background-repeat:no-repeat;background-position:right top;border:solid 3px #cccccc;display:none" onclick="this.style.display='none'"></div>
+  </div>
+  <script>
+   //fallback for IE8
+   // important remark: if you use very small table (with very few data) you can use the table in IE8, but it is 10 times slower than FF or Chrome
+   //                   if you use small table (30 lines x 200 col (10 years)) you can use the table in IE9, but it is 10 times slower than FF or Chrome
+   //                   if you use big table  (800 lines x 200 col (10 years)) you can use the table in IE10, but slower
+   //                    activate this for IE8:        if(l_browser.substr(0,4) == 'MSIE' && l_browser.substr(5,1) < '8' && l_browser.substr(5,1) > '1' )
+   //                    activate this for IE9:        if(l_browser.substr(0,4) == 'MSIE' && l_browser.substr(5,1) < '9' && l_browser.substr(5,1) > '1' )
+   //                    activate this for IE10:       if(l_browser.substr(0,4) == 'MSIE' && l_browser.substr(5,1) <= '9' && l_browser.substr(5,1) > '1' )
+   if(l_browser.substr(0,4) == 'MSIE' && l_browser.substr(5,1) <= '9' && l_browser.substr(5,1) > '1' )
+   {
+    //get the name of this html page
+    var l_url_parts = window.location.href.split('/');
+    var l_html_page = l_url_parts[l_url_parts.length-1].split('.')[0];
+
+    var l_param = window.location.search.substring(1);    //get all params
+    var l_lang = (l_param.toUpperCase().indexOf('LANG=FR') != -1 ? 'FR':
+                 (l_param.toUpperCase().indexOf('LANG=EN') != -1 ? 'EN':
+                 (l_param.toUpperCase().indexOf('LANG=DE') != -1 ? 'DE':'NL')));
+    var l_lang_index = (l_lang=='FR'?1:(l_lang=='EN'?2:(l_lang=='DE'?3:0)));
+    var date = new Date();
+    var dateStr = "" + date.getFullYear() + (date.getMonth() + 1) + date.getDate();
+    var l_warning = ar_title[28][l_lang_index]+' ('+l_browser+') '+ar_title[29][l_lang_index];
+    var l_warning_with_icon = ar_title[28][l_lang_index]+' ('+l_browser+'  <img src="css\\images\\browser_ie.jpg">) '+ar_title[29][l_lang_index]+'  <img src="css\\images\\browser_other.jpg">';
+    //remark an image with path and name = css\images\fallback\<page name>_<lang>.png should exist
+    document.getElementById('dt_example').innerHTML='<div style="background-color:orange;padding:5px">'+l_warning_with_icon+'</div>'
+            +'<img src="css\\images\\fallback\\'+l_html_page+'_'+l_lang+'.png?d='+dateStr+'" onclick="alert(\' '+l_warning.replace('<br>','')+' \')">';
+    l_fallback = 1;
+   };
+   if(!l_fallback){f_draw_table()};
+   if(l_debug_flag){var l_date2 = new Date(); l_debug_text+= '\n' + (l_date2 - l_date1)+ '---' + 'end of HTML'};
+  </script>
+ </body>
+</html>

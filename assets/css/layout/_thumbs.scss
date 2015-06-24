@@ -1,0 +1,50 @@
+.thumbs {
+  list-style-position:inside;
+  padding:0;
+
+}
+
+.thumbs li {
+
+  display:inline;
+
+}
+
+.thumbs li iframe {
+    width:32rem;
+    height:24rem;
+    margin:0 1.665rem 1.665rem 0;
+
+}
+
+/*==========  Mobile First Method  ==========*/
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {
+
+}
+
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {
+
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+
+.thumbs li img {
+    width:36rem;
+    margin:0 1.665rem 1.665rem 0;
+
+}
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+
+  }
+
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {
+
+  }

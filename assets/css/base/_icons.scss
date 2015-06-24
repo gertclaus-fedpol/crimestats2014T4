@@ -1,0 +1,36 @@
+//Date icon
+
+time {
+  border: 0.210rem solid $heading-color;
+  border-radius:$radius-small;
+  width:2.8845em;
+  height:2.8845em;
+  display:block;
+  text-align:center;
+  background:rgba($heading-color, .3);
+  overflow:hidden;
+  color:$white;
+  float:left;
+  margin-right:1rem;
+  font-size:81%;
+
+  }
+
+.date {
+  display:block;
+  background:rgba($heading-color, .7);
+  overflow-y:hidden;
+  border-radius:0 0 $radius-small $radius-small;
+  font-size:54%;
+
+}
+
+//Traffic icon
+span.traffic {
+  background:rgba($heading-color, .7);
+  padding:0.3161rem;
+  color:$white;
+  width:4.741rem;
+  display:inline-block;
+  text-align:center;
+}

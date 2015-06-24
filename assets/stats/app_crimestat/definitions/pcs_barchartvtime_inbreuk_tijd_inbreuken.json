@@ -1,0 +1,39 @@
+﻿{
+ "subject":{
+            "NL":{
+                  "title":"Aantal geregistreerde misdrijven (Top 5 - hoofdcategorieën)"
+                 ,"info":"<p>Aantal door de politiediensten geregistreerde feiten voor een selectie van hoofdcategorieën (top 5 op nationaal niveau).  Dit zijn inbreuken op de wetgeving in het gerechtelijk domein (niet-verkeer).<br><br> Weergave per pleegjaar en op nationaal niveau.<br><br>Zowel de pogingen als de voltooide feiten worden weergegeven.<br></p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"FR":{
+                  "title":"Nombre de délits enregistrés (Top 5 - catégories principales)"
+                 ,"info":"<p>Nombre de faits enregistrés par les services de police pour une sélection de catégories principales (top 5 au niveau national). Il s’agit d’infractions dans le domaine judiciaire (non-circulation). <br><br> Représentation par année de perpétration et au niveau national.<br><br>Il s’agit toujours aussi bien de faits accomplis que de tentatives.<br></p>"
+                 ,"source":"Source: <a href='http://www.stat.policefederale.be'>DRI/BIPOL - Statistiques policières de criminalité</a>"
+                 }
+           ,"EN":{
+                  "title":"Aantal misdrijven (Top 5 - hoofdcategorieën) - nationaal"
+                 ,"info":"<p>Aantal misdrijven op nationaal niveau doorheen de tijd.<br>Deze gegevens betreffen de geregistreerde misdrijven die vastgesteld werden door de politiediensten (op het grondgebied België) en dus niet de totale gepleegde criminaliteit.<br></p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           ,"DE":{
+                  "title":"Aantal misdrijven (Top 5 - hoofdcategorieën) - nationaal"
+                 ,"info":"<p>Aantal misdrijven op nationaal niveau doorheen de tijd.<br>Deze gegevens betreffen de geregistreerde misdrijven die vastgesteld werden door de politiediensten (op het grondgebied België) en dus niet de totale gepleegde criminaliteit.<br></p>"
+                 ,"source":"Bron: <a href='http://www.stat.federalepolitie.be'>DRI/BIPOL - Politiële criminaliteitsstatistieken</a>"
+                 }
+           }
+,"visualisations":{
+                   "possible":["stacked","grouped"]
+                  ,"default":"grouped"
+                  }
+,"bars":[
+         {"measure":"m01"  ,"label":{"NL":"Bedrog"                                ,"FR":"Fraude"                                   ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#FF0000"}
+        ,{"measure":"m02"  ,"label":{"NL":"Beschadigen van eigendom"              ,"FR":"Dégradation de la propriété"              ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#00008B"}
+        ,{"measure":"m03"  ,"label":{"NL":"Diefstal en afpersing"                 ,"FR":"Vol et extorsion"                         ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#00FF00"}
+        ,{"measure":"m04"  ,"label":{"NL":"Drugs"                                 ,"FR":"Drogues"                                  ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#00B9FF"}
+        ,{"measure":"m05"  ,"label":{"NL":"Misdr. tgn lichamel. integriteit"      ,"FR":"Infr. contre l'intégrité physique"       ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#FFEC00"}
+        ,{"measure":"m06"  ,"label":{"NL":"Andere"      ,"FR":"Autre"       ,"EN":""        ,"DE":""      }  ,"format":{"NL":",.0f","FR":",.0f","EN":",.0f","DE":",.0f"}  ,"color":"#cccccc"}
+        ]
+,"evolution":{
+              "dimension":"x"  ,"format":{"NL":"%Y","FR":"%Y","EN":"%Y","DE":"%Y"}
+             }
+}

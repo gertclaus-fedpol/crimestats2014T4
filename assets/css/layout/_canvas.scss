@@ -1,0 +1,17 @@
+//core canvas of the website
+
+
+body {
+	max-width:109.35rem;
+	margin:0 auto;
+	@include retinize('bg/e-bg', 'jpg');
+	}
+
+.core {
+	background:$white;
+	}
+
+.base-light { background:rgba($neutral-color, .1);}
+.base-dark { background:rgba($neutral-color, .3);}
+
+img.banner { border: .5619em solid #999999;}

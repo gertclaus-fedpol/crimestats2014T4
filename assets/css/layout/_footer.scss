@@ -1,0 +1,95 @@
+hr { clear: both;}
+
+footer {
+  background-color:$heading-color;
+  @include border-bottom-right-radius($radius);
+}
+
+footer,footer h3,footer p, footer a:link { color:$white;}
+
+.b-main, .bottom {
+   @extend .row;
+}
+
+
+.social, .help, .search, .quicknav, .quicknav {
+  @extend .col-xs-12;
+  @extend .col-sm-12;
+  @extend .col-md-6;
+  @extend .col-lg-5;
+
+}
+
+.help, .search, .quicknav  {
+  @extend .col-xs-12;
+  @extend .col-sm-12;
+  @extend .col-md-6;
+  @extend .col-lg-6;
+  @extend .col-md-offset-1;
+
+}
+
+.quicknav {
+  @extend .col-xs-12;
+  @extend .col-sm-12;
+  @extend .col-md-12;
+  @extend .col-lg-12;
+}
+
+
+.social-icons li {
+  display:inline-block;
+  padding: 2rem 0 0 0;
+  width:8.1rem;
+  text-align:center;
+
+}
+
+.social-icons li i {
+
+  font-size:6.4rem;
+}
+
+.quicknav {
+    border-top: thin solid $white;
+
+}
+
+.quicknav ul {
+    list-style-image: disc;
+    -webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
+}
+
+//Bottom
+
+
+
+.copyright, .lang {
+  @extend .col-sm-6;
+
+}
+
+
+
+/*==========  Mobile First Method  ==========*/
+
+	/* Custom, iPhone Retina */
+	@media only screen and (min-width : 320px) {
+
+}
+
+	/* Extra Small Devices, Phones */
+	@media only screen and (min-width : 480px) {
+
+	}
+
+	/* Small Devices, Tablets */
+	@media only screen and (min-width : 768px) {
+
+
+
+
+
+	}
