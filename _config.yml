@@ -6,7 +6,7 @@ description: "Write an awesome description for your new site here. You can edit 
 
 
 
-baseurl: ""
+baseurl: "/crimestats2014T4/"
 url: ""
 twitter_username: jekyllrb
 github_username:  jekyll
